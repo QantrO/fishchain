@@ -1,0 +1,217 @@
+---
+version: '3.6'
+
+x-quorum-def: &quorum-def
+  restart: "on-failure"
+  build:
+    context: .
+    args:
+      QUORUM_VERSION: ${QUORUM_VERSION:-latest}
+  expose:
+    - 30303
+    - 8545
+    - 9545
+  healthcheck:
+    test:
+      [
+        "CMD",
+        "wget",
+        "--spider",
+        "--proxy",
+        "off",
+        "http://localhost:8545"
+      ]
+    interval: 3s
+    timeout: 3s
+    retries: 10
+    start_period: 5s
+
+networks:
+  quorum-dev-quickstart:
+    name: quorum-dev-quickstart
+    external: true
+  quorum-dev-quickstart2:
+    name: quorum-dev-quickstart2
+    external: true
+
+services:
+
+  testnode-1:
+    <<: *quorum-def
+    container_name: testnode-1
+    ports:
+      - 20011:8545/tcp
+      - 20012:8546/tcp
+      - 30303
+      - 9545
+    environment:
+      - GOQUORUM_GENESIS_MODE=standard
+      - PRIVATE_CONFIG=ignore
+    volumes:
+      - .:/quorum
+      - ./nodes/testnode1:/config/keys
+    networks:
+      quorum-dev-quickstart2:
+        ipv4_address: 172.16.240.61
+
+  testnode-2:
+    <<: *quorum-def
+    container_name: testnode-2
+    ports:
+      - 20013:8545/tcp
+      - 20014:8546/tcp
+      - 30303
+      - 9545
+    environment:
+      - GOQUORUM_GENESIS_MODE=standard
+      - PRIVATE_CONFIG=ignore
+    volumes:
+      - .:/quorum
+      - ./nodes/testnode2:/config/keys
+    networks:
+      quorum-dev-quickstart2:
+        ipv4_address: 172.16.240.62
+
+  testnode-3:
+    <<: *quorum-def
+    container_name: testnode-3
+    ports:
+      - 20015:8545/tcp
+      - 20016:8546/tcp
+      - 30303
+      - 9545
+    environment:
+      - GOQUORUM_GENESIS_MODE=standard
+      - PRIVATE_CONFIG=ignore
+    volumes:
+      - .:/quorum
+      - ./nodes/testnode3:/config/keys
+    networks:
+      quorum-dev-quickstart2:
+        ipv4_address: 172.16.240.63
+
+  testnode-4:
+    <<: *quorum-def
+    container_name: testnode-4
+    ports:
+      - 20017:8545/tcp
+      - 20018:8546/tcp
+      - 30303
+      - 9545
+    environment:
+      - GOQUORUM_GENESIS_MODE=standard
+      - PRIVATE_CONFIG=ignore
+    volumes:
+      - .:/quorum
+      - ./nodes/testnode4:/config/keys
+    networks:
+      quorum-dev-quickstart2:
+        ipv4_address: 172.16.240.64
+
+  testnode-5:
+    <<: *quorum-def
+    container_name: testnode-5
+    ports:
+      - 20019:8545/tcp
+      - 20020:8546/tcp
+      - 30303
+      - 9545
+    environment:
+      - GOQUORUM_GENESIS_MODE=standard
+      - PRIVATE_CONFIG=ignore
+    volumes:
+      - .:/quorum
+      - ./nodes/testnode5:/config/keys
+    networks:
+      quorum-dev-quickstart2:
+        ipv4_address: 172.16.240.65
+
+  testnode-6:
+    <<: *quorum-def
+    container_name: testnode-6
+    ports:
+      - 20021:8545/tcp
+      - 20022:8546/tcp
+      - 30303
+      - 9545
+    environment:
+      - GOQUORUM_GENESIS_MODE=standard
+      - PRIVATE_CONFIG=ignore
+    volumes:
+      - .:/quorum
+      - ./nodes/testnode6:/config/keys
+    networks:
+      quorum-dev-quickstart2:
+        ipv4_address: 172.16.240.66
+
+  testnode-7:
+    <<: *quorum-def
+    container_name: testnode-7
+    ports:
+      - 20023:8545/tcp
+      - 20024:8546/tcp
+      - 30303
+      - 9545
+    environment:
+      - GOQUORUM_GENESIS_MODE=standard
+      - PRIVATE_CONFIG=ignore
+    volumes:
+      - .:/quorum
+      - ./nodes/testnode7:/config/keys
+    networks:
+      quorum-dev-quickstart2:
+        ipv4_address: 172.16.240.67
+
+  testnode-8:
+    <<: *quorum-def
+    container_name: testnode-8
+    ports:
+      - 20025:8545/tcp
+      - 20026:8546/tcp
+      - 30303
+      - 9545
+    environment:
+      - GOQUORUM_GENESIS_MODE=standard
+      - PRIVATE_CONFIG=ignore
+    volumes:
+      - .:/quorum
+      - ./nodes/testnode8:/config/keys
+    networks:
+      quorum-dev-quickstart2:
+        ipv4_address: 172.16.240.68
+
+  testnode-9:
+    <<: *quorum-def
+    container_name: testnode-9
+    ports:
+      - 20027:8545/tcp
+      - 20028:8546/tcp
+      - 30303
+      - 9545
+    environment:
+      - GOQUORUM_GENESIS_MODE=standard
+      - PRIVATE_CONFIG=ignore
+    volumes:
+      - .:/quorum
+      - ./nodes/testnode9:/config/keys
+    networks:
+      quorum-dev-quickstart2:
+        ipv4_address: 172.16.240.69
+
+  testnode-10:
+    <<: *quorum-def
+    container_name: testnode-10
+    ports:
+      - 20029:8545/tcp
+      - 20030:8546/tcp
+      - 30303
+      - 9545
+    environment:
+      - GOQUORUM_GENESIS_MODE=standard
+      - PRIVATE_CONFIG=ignore
+    volumes:
+      - .:/quorum
+      - ./nodes/testnode10:/config/keys
+    networks:
+      quorum-dev-quickstart2:
+        ipv4_address: 172.16.240.70

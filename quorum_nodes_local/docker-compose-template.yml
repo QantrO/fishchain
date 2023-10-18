@@ -1,0 +1,39 @@
+---
+version: '3.6'
+
+x-quorum-def: &quorum-def
+  restart: "on-failure"
+  build:
+    context: .
+    args:
+      QUORUM_VERSION: ${QUORUM_VERSION:-latest}
+  expose:
+    - 30303
+    - 8545
+    - 9545
+  healthcheck:
+    test:
+      [
+        "CMD",
+        "wget",
+        "--spider",
+        "--proxy",
+        "off",
+        "http://localhost:8545"
+      ]
+    interval: 3s
+    timeout: 3s
+    retries: 10
+    start_period: 5s
+
+networks:
+  quorum-dev-quickstart:
+    name: quorum-dev-quickstart
+    external: true
+  quorum-dev-quickstart2:
+    name: quorum-dev-quickstart2
+    external: true
+
+services:
+
+
