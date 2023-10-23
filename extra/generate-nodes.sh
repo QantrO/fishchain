@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Default values
-IP_ADDRESS="172.16.240."
+IP_ADDRESS="172.16.239."
 NODE_NAME="testnode-"
 CONTAINER_NAME="testnode-"
 KEY_STORAGE="./nodes/$NODE_NAME:/config/keys"
@@ -43,7 +43,7 @@ for ((i=1; i<=$REPETITIONS; i++)); do
       - .:/quorum
       - $KEY_STORAGE
     networks:
-      quorum-dev-quickstart2:
+      quorum-dev-quickstart:
         ipv4_address: $IP_ADDRESS_loc
 
 "
