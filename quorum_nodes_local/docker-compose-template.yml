@@ -30,9 +30,6 @@ networks:
   quorum-dev-quickstart:
     name: quorum-dev-quickstart
     external: true
-  quorum-dev-quickstart2:
-    name: quorum-dev-quickstart2
-    external: true
 
 services:
 
