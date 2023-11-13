@@ -265,3 +265,7 @@ dist
 
 quorum_nodes_local/data/
 quorum_nodes_local/nodes/
+Node-*
+artifacts
+package.json
+package-lock.json
