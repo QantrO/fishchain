@@ -10,6 +10,7 @@ do
 done
 
 # Create genesis file and node keys
+npm install quorum-genesis-tool
 npx quorum-genesis-tool --consensus qbft --chainID 1337 --blockperiod 5 --requestTimeout 10 --epochLength 30000 --difficulty 1 --gasLimit '0xFFFFFF' --coinbase '0x0000000000000000000000000000000000000000' --validators $NUM_NODES --members 0 --bootnodes 0 --outputPath 'artifacts'
 
 # Move generated files to the correct directories
