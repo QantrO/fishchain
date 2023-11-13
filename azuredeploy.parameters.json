@@ -1,0 +1,591 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "westeurope"
+        },
+        "containers": {
+            "value": [
+                [
+                    {
+                        "name": "member1tessera",
+                        "properties": {
+                            "image": "crfishchain.azurecr.io/quorum_nodes/quorum-test-network-member1tessera",
+                            "ports": [
+                                {
+                                    "port": 9081,
+                                    "protocol": "TCP"
+                                }
+                            ],
+                            "resources": {
+                                "requests": {
+                                    "cpu": 0.25,
+                                    "memoryInGB": 0.5
+                                }
+                            }
+                        }
+                    }
+                ],
+                [
+                    {
+                        "name": "member2tessera",
+                        "properties": {
+                            "image": "crfishchain.azurecr.io/quorum_nodes/quorum-test-network-member2tessera",
+                            "ports": [
+                                {
+                                    "port": 9082,
+                                    "protocol": "TCP"
+                                }
+                            ],
+                            "resources": {
+                                "requests": {
+                                    "cpu": 0.25,
+                                    "memoryInGB": 0.5
+                                }
+                            }
+                        }
+                    }
+                ],
+                [
+                    {
+                        "name": "member3tessera",
+                        "properties": {
+                            "image": "crfishchain.azurecr.io/quorum_nodes/quorum-test-network-member3tessera",
+                            "ports": [
+                                {
+                                    "port": 9083,
+                                    "protocol": "TCP"
+                                }
+                            ],
+                            "resources": {
+                                "requests": {
+                                    "cpu": 0.25,
+                                    "memoryInGB": 0.5
+                                }
+                            }
+                        }
+                    }
+                ],
+                [
+                    {
+                        "name": "member1quorum",
+                        "properties": {
+                            "image": "crfishchain.azurecr.io/quorum_nodes/quorum-test-network-member1quorum",
+                            "ports": [
+                                {
+                                    "port": 20000,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 20001,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 30303,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 9545,
+                                    "protocol": "TCP"
+                                }
+                            ],
+                            "resources": {
+                                "requests": {
+                                    "cpu": 0.25,
+                                    "memoryInGB": 0.5
+                                }
+                            },
+                            "environmentVariables": [
+                                {
+                                    "name": "GOQUORUM_CONS_ALGO",
+                                    "value": "qbft"
+                                },
+                                {
+                                    "name": "GOQUORUM_GENESIS_MODE",
+                                    "value": "enhanced"
+                                },
+                                {
+                                    "name": "QUORUM_PTM",
+                                    "value": "member1tessera"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                [
+                    {
+                        "name": "member2quorum",
+                        "properties": {
+                            "image": "crfishchain.azurecr.io/quorum_nodes/quorum-test-network-member2quorum",
+                            "ports": [
+                                {
+                                    "port": 20002,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 20003,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 30303,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 9545,
+                                    "protocol": "TCP"
+                                }
+                            ],
+                            "resources": {
+                                "requests": {
+                                    "cpu": 0.25,
+                                    "memoryInGB": 0.5
+                                }
+                            },
+                            "environmentVariables": [
+                                {
+                                    "name": "GOQUORUM_CONS_ALGO",
+                                    "value": "qbft"
+                                },
+                                {
+                                    "name": "GOQUORUM_GENESIS_MODE",
+                                    "value": "enhanced"
+                                },
+                                {
+                                    "name": "QUORUM_PTM",
+                                    "value": "member2tessera"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                [
+                    {
+                        "name": "member3quorum",
+                        "properties": {
+                            "image": "crfishchain.azurecr.io/quorum_nodes/quorum-test-network-member3quorum",
+                            "ports": [
+                                {
+                                    "port": 20004,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 20005,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 30303,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 9545,
+                                    "protocol": "TCP"
+                                }
+                            ],
+                            "resources": {
+                                "requests": {
+                                    "cpu": 0.25,
+                                    "memoryInGB": 0.5
+                                }
+                            },
+                            "environmentVariables": [
+                                {
+                                    "name": "GOQUORUM_CONS_ALGO",
+                                    "value": "qbft"
+                                },
+                                {
+                                    "name": "GOQUORUM_GENESIS_MODE",
+                                    "value": "enhanced"
+                                },
+                                {
+                                    "name": "QUORUM_PTM",
+                                    "value": "member3tessera"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                [
+                    {
+                        "name": "validator1",
+                        "properties": {
+                            "image": "crfishchain.azurecr.io/quorum_nodes/quorum-test-network-validator1",
+                            "ports": [
+                                {
+                                    "port": 21001,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 30303,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 9545,
+                                    "protocol": "TCP"
+                                }
+                            ],
+                            "resources": {
+                                "requests": {
+                                    "cpu": 0.25,
+                                    "memoryInGB": 0.5
+                                }
+                            },
+                            "environmentVariables": [
+                                {
+                                    "name": "GOQUORUM_CONS_ALGO",
+                                    "value": "qbft"
+                                },
+                                {
+                                    "name": "GOQUORUM_GENESIS_MODE",
+                                    "value": "standard"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                [
+                    {
+                        "name": "validator2",
+                        "properties": {
+                            "image": "crfishchain.azurecr.io/quorum_nodes/quorum-test-network-validator2",
+                            "ports": [
+                                {
+                                    "port": 21002,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 30303,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 9545,
+                                    "protocol": "TCP"
+                                }
+                            ],
+                            "resources": {
+                                "requests": {
+                                    "cpu": 0.25,
+                                    "memoryInGB": 0.5
+                                }
+                            },
+                            "environmentVariables": [
+                                {
+                                    "name": "GOQUORUM_CONS_ALGO",
+                                    "value": "qbft"
+                                },
+                                {
+                                    "name": "GOQUORUM_GENESIS_MODE",
+                                    "value": "standard"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                [
+                    {
+                        "name": "validator3",
+                        "properties": {
+                            "image": "crfishchain.azurecr.io/quorum_nodes/quorum-test-network-validator3",
+                            "ports": [
+                                {
+                                    "port": 21003,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 30303,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 9545,
+                                    "protocol": "TCP"
+                                }
+                            ],
+                            "resources": {
+                                "requests": {
+                                    "cpu": 0.25,
+                                    "memoryInGB": 0.5
+                                }
+                            },
+                            "environmentVariables": [
+                                {
+                                    "name": "GOQUORUM_CONS_ALGO",
+                                    "value": "qbft"
+                                },
+                                {
+                                    "name": "GOQUORUM_GENESIS_MODE",
+                                    "value": "standard"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                [
+                    {
+                        "name": "validator4",
+                        "properties": {
+                            "image": "crfishchain.azurecr.io/quorum_nodes/quorum-test-network-validator4",
+                            "ports": [
+                                {
+                                    "port": 21004,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 30303,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 9545,
+                                    "protocol": "TCP"
+                                }
+                            ],
+                            "resources": {
+                                "requests": {
+                                    "cpu": 0.25,
+                                    "memoryInGB": 0.5
+                                }
+                            },
+                            "environmentVariables": [
+                                {
+                                    "name": "GOQUORUM_CONS_ALGO",
+                                    "value": "qbft"
+                                },
+                                {
+                                    "name": "GOQUORUM_GENESIS_MODE",
+                                    "value": "standard"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                [
+                    {
+                        "name": "rpcnode",
+                        "properties": {
+                            "image": "crfishchain.azurecr.io/quorum_nodes/quorum-test-network-rpcnode",
+                            "ports": [
+                                {
+                                    "port": 8545,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 8546,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 30303,
+                                    "protocol": "TCP"
+                                },
+                                {
+                                    "port": 9545,
+                                    "protocol": "TCP"
+                                }
+                            ],
+                            "resources": {
+                                "requests": {
+                                    "cpu": 0.25,
+                                    "memoryInGB": 0.5
+                                }
+                            },
+                            "environmentVariables": [
+                                {
+                                    "name": "GOQUORUM_CONS_ALGO",
+                                    "value": "qbft"
+                                },
+                                {
+                                    "name": "GOQUORUM_GENESIS_MODE",
+                                    "value": "standard"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                [
+                    {
+                        "name": "explorer",
+                        "properties": {
+                            "image": "crfishchain.azurecr.io/quorum_nodes/quorum-explorer",
+                            "ports": [
+                                {
+                                    "port": 25000,
+                                    "protocol": "TCP"
+                                }
+                            ],
+                            "resources": {
+                                "requests": {
+                                    "cpu": 0.25,
+                                    "memoryInGB": 0.5
+                                }
+                            }
+                        }
+                    }
+                ],
+                [
+                    {
+                        "name": "redis",
+                        "properties": {
+                            "image": "crfishchain.azurecr.io/quorum_nodes/redis",
+                            "ports": [
+                                {
+                                    "port": 6379,
+                                    "protocol": "TCP"
+                                }
+                            ],
+                            "resources": {
+                                "requests": {
+                                    "cpu": 0.25,
+                                    "memoryInGB": 0.5
+                                }
+                            }
+                        }
+                    }
+                ]
+            ]
+        },
+        "imageRegistryCredentials": {
+            "value": [
+                {
+                    "server": "crfishchain.azurecr.io",
+                    "username": "crfishchain",
+                    "password": "QM1Esa1OycxZQ1YU8r20ESUd/C4iPYj7kFicHg5w7m+ACRB+y0YM"
+                }
+            ]
+        },
+        "ipAddress": {
+            "value": [
+                {
+                    "ports": [
+                        {
+                            "port": 9081,
+                            "protocol": "TCP"
+                        }
+                    ],
+                    "type": "Public"
+                },
+                {
+                    "ports": [
+                        {
+                            "port": 9082,
+                            "protocol": "TCP"
+                        }
+                    ],
+                    "type": "Public"
+                },
+                {
+                    "ports": [
+                        {
+                            "port": 9083,
+                            "protocol": "TCP"
+                        }
+                    ],
+                    "type": "Public"
+                },
+                {
+                    "ports": [
+                        {
+                            "port": 20000,
+                            "protocol": "TCP"
+                        },
+                        {
+                            "port": 20001,
+                            "protocol": "TCP"
+                        }
+                    ],
+                    "type": "Public"
+                },
+                {
+                    "ports": [
+                        {
+                            "port": 20002,
+                            "protocol": "TCP"
+                        },
+                        {
+                            "port": 20003,
+                            "protocol": "TCP"
+                        }
+                    ],
+                    "type": "Public"
+                },
+                {
+                    "ports": [
+                        {
+                            "port": 20004,
+                            "protocol": "TCP"
+                        },
+                        {
+                            "port": 20005,
+                            "protocol": "TCP"
+                        }
+                    ],
+                    "type": "Public"
+                },
+                {
+                    "ports": [
+                        {
+                            "port": 21001,
+                            "protocol": "TCP"
+                        }
+                    ],
+                    "type": "Public"
+                },
+                {
+                    "ports": [
+                        {
+                            "port": 21002,
+                            "protocol": "TCP"
+                        }
+                    ],
+                    "type": "Public"
+                },
+                {
+                    "ports": [
+                        {
+                            "port": 21003,
+                            "protocol": "TCP"
+                        }
+                    ],
+                    "type": "Public"
+                },
+                {
+                    "ports": [
+                        {
+                            "port": 21004,
+                            "protocol": "TCP"
+                        }
+                    ],
+                    "type": "Public"
+                },
+                {
+                    "ports": [
+                        {
+                            "port": 8545,
+                            "protocol": "TCP"
+                        },
+                        {
+                            "port": 8546,
+                            "protocol": "TCP"
+                        }
+                    ],
+                    "type": "Public"
+                },
+                {
+                    "ports": [
+                        {
+                            "port": 25000,
+                            "protocol": "TCP"
+                        }
+                    ],
+                    "type": "Public"
+                },
+                {
+                    "ports": [
+                        {
+                            "port": 6379,
+                            "protocol": "TCP"
+                        }
+                    ],
+                    "type": "Public"
+                }
+            ]
+        }
+    }
+}
