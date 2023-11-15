@@ -12,7 +12,7 @@ def update_nodes():
     new_data = []
     for idx, node in enumerate(data):
         enode, node_ip = node.split('@')
-        node_ip = f"127.0.0.1:{30300+idx}?discport=0&raftport={53000+idx}"
+        node_ip = f"172.16.239.{2+idx}:{30300}?discport=0&raftport={53000}"
         new_data.append(enode + '@' + node_ip)
     
     with open(STATIC_NODES_PATH, 'w') as f:
