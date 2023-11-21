@@ -36,21 +36,23 @@ do
     cp artifacts/validator$i/account* Node-$i/data/keystore
 done
 
-# For each member, copy files to the correct directories
+# For each bootnode, copy files to the correct directories
 for ((i=$NUM_VALIDATORS, j=0; i<$NUM_VALIDATORS+$NUM_MEMBERS; i++, j++))
+do
+    cp artifacts/goQuorum/static-nodes.json artifacts/goQuorum/genesis.json Node-$i/data
+    cp artifacts/bootnode$j/nodekey* artifacts/bootnode$j/address Node-$i/data
+    cp artifacts/bootnode$j/account* Node-$i/data/keystore
+done
+
+# For each member, copy files to the correct directories
+
+for ((i=$NUM_VALIDATORS+$NUM_MEMBERS, j=0; i<$NUM_NODES; i++, j++))
 do
     cp artifacts/goQuorum/static-nodes.json artifacts/goQuorum/genesis.json Node-$i/data
     cp artifacts/member$j/nodekey* artifacts/member$j/address Node-$i/data
     cp artifacts/member$j/account* Node-$i/data/keystore
 done
 
-# For each bootnode, copy files to the correct directories
-for ((i=$NUM_VALIDATORS+$NUM_MEMBERS, j=0; i<$NUM_NODES; i++, j++))
-do
-    cp artifacts/goQuorum/static-nodes.json artifacts/goQuorum/genesis.json Node-$i/data
-    cp artifacts/bootnode$j/nodekey* artifacts/bootnode$j/address Node-$i/data
-    cp artifacts/bootnode$j/account* Node-$i/data/keystore
-done
 
 # In each node directory, initialize the node
 echo "Initializing the nodes"
