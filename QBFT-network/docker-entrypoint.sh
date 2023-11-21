@@ -5,9 +5,6 @@ geth --datadir data init data/genesis.json
 cp ./data/nodekey ./data/geth/nodekey;
 cp ./data/keystore/accountKeystore /data/keystore/key;
 
-ls data
-cat data/genesis.json
-
 export ADDRESS=$(grep -o '"address": *"[^"]*"' ./data/keystore/accountKeystore | grep -o '"[^"]*"$' | sed 's/"//g')
 
 exec geth \
@@ -22,4 +19,5 @@ exec geth \
     --identity ${HOSTNAME}-"qbft" \
     --unlock ${ADDRESS} \
     --allow-insecure-unlock --password ./data/keystore/accountPassword \
-    --port 30303
+    --port 30303 \
+    --maxpeers 100
