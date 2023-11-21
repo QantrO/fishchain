@@ -1,9 +1,7 @@
 #!/bin/bash
 
-NUM_VALIDATORS=5
-NUM_BOOTNODES=1
-NUM_MEMBERS=1
-NUM_NODES=$((NUM_VALIDATORS+NUM_BOOTNODES+NUM_MEMBERS))
+# Import node configurations
+. nodes.conf
 
 # For each node, create a directory "Node-{i}/data/keystore"
 
