@@ -269,3 +269,4 @@ Node-*
 artifacts
 package.json
 package-lock.json
+testnode*
