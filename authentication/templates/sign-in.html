@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/sign-in.css')}}">
+</head>
+<body>
+{% extends 'base.html' %}
+{% block title %}Sign In{% endblock %}
+{% block content %}
+<div class="container">
+    <form class="signin-form" action="/validate" method="post" id="regular-signin-form">
+        <h2>Sign In</h2>
+        
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Sign In</button>
+    </form>
+
+    <div class="signin">
+        <p>Or sign in with an alternate provider:</p>
+        <form action="/login" method="get" class="microsoft-signin-form">
+            <button type="submit" class="microsoft-button">
+                <img src="../static/images/microsoft.png" alt="Microsoft Logo">
+                Sign in with Microsoft
+            </button>
+        </form>
+        <form action="/login" method="get" class="google-signin-form">
+            <button type="submit" class="google-button">
+                <img src="../static/images/google.png" alt="Google Logo">
+                Sign in with Google
+            </button>
+        </form>
+        <form action="/login" method="get" class="tiktok-signin-form">
+            <button type="submit" class="tiktok-button">
+                <img src="../static/images/tik-tok.png" alt="TikTok Logo">
+                Sign in with TikTok
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+</body>
+</html>

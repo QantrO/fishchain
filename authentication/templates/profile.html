@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+{% extends 'base.html' %}
+{% block title %}Profil{% endblock %}
+{% block content %}
+<div id="app">
+    {%if profile %}
+    <h1>Hi {{ profile.name }}</h1>
+    <h2>Here is your profile</h2>
+    <ul>
+        <li>Name: {{ profile.name }}</li>
+        <li>Email: {{ profile.email }}</li>
+        <li>Picture: {{ profile.picture }}</li>
+        <li>Sub: {{ profile.sub }}</li>
+    </ul>
+    {% else %}
+    <script>
+        window.location.href = "/";
+    </script>
+    {% endif %}
+
+{% endblock %}
+
+</body>
+</html>

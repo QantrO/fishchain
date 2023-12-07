@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.signin-form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input {
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.signin {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: large;
+    text-align: center;
+    width: 100%;
+}
+
+.microsoft-signin-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.microsoft-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #0078d4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.microsoft-button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.google-signin-form {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: rgb(15,157,88, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.google-button img {
+    width: 24px;
+    height: 24px;
+    margin-left: -9px;
+    margin-right: 10px;
+}
+
+.tiktok-signin-form {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.tiktok-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: rgb(0,0,0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.tiktok-button img {
+    width: 24px;
+    height: 24px;
+    margin-left: -11px;
+    margin-right: 10px;
+}

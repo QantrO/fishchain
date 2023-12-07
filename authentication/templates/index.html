@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block title %}Home{% endblock %}
+    
+    {% block content %}
+    <div id="app">
+        {% if profile %}
+            <h2>Welcome {{ profile.name }}</h2>
+            <h3>Click the button below to join the blockchain</h3>
+            <button id="join-blockchain-btn" {% if not profile %}style="display: none;"{% endif %} onclick="joinBlockchain()">
+                <img src="../static/images/blockchain.png" alt="Microsoft Logo">
+                Join Blockchain</button>
+        {% else %}
+            <h2>Sign in to see options</h2>
+        {% endif %}
+    </div>
+    {% endblock %}
+</html>
