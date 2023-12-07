@@ -9,6 +9,7 @@ export ADDRESS=$(grep -o '"address": *"[^"]*"' ./data/keystore/accountKeystore |
 
 exec geth \
     --datadir /data \
+    --permissioned \
     --networkid 1337 --nodiscover --verbosity 5 \
     --syncmode full \
     --istanbul.blockperiod 5 --mine --miner.threads 1 --miner.gasprice 0 --emitcheckpoints \
