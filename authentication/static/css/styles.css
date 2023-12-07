@@ -23,8 +23,6 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 3px solid #0000ff77;
-    border-radius: 10px;
 }
 
 .content h1 {
