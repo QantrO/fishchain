@@ -270,3 +270,7 @@ artifacts
 package.json
 package-lock.json
 testnode*
+nodes/
+testing/
+QBFT-network/new_member/data/
+node_ip_addresses.txt
