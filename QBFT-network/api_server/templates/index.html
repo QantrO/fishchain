@@ -3,9 +3,9 @@
 
 <head>
     <title>QBFT Network</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <style>
         body {
             display: flex;
@@ -22,61 +22,50 @@
         }
 
         .box {
-            background-color: #007bff;
+            background-color: #0071e9;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .header {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
             color: #fff;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .message-style {
-            font-size: 16px;
+            font-size: 20px;
             color: #fff;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .button-style {
             background-color: #fff;
-            color: #007bff;
-            font-size: 16px;
+            color: #0071e9;
+            font-size: 20px;
             border-radius: 5px;
-            padding: 10px 20px;
-            transition: background-color 0.3s ease;
+            padding: 20px;
+            transition: background-color 0.5s ease;
         }
     </style>
 </head>
 
 <body>
-
     <div class="container">
         <div class="box">
             <div class="header">Bootnode Panel</div>
-            <!-- <div class="message-style">Address of the new node: {{ enode_address }}</div> -->
-            <div class="message-style">IP address: 172.16.239.50</div>
-            <div class="message-style">public key:
-                0d5d8050f0b348b969ba935ddf3f183083519567842155f0b037dbc57f91a5cffd84300489346c08051feca476144b31e21ff0e6e33977f70b0cbe8a395f1e47
-            </div>
+            <div class="message-style">Address of the new node: {{ enode_address }}</div>
             <button class="btn btn-primary button-style" onclick="addNode()">Add node to whitelist</button>
         </div>
-
         <div class="box">
             <div class="header">Admin Panel</div>
-            <div class="message-style">IP address: 172.16.239.50</div>
-            <div class="message-style">public key:
-                0d5d8050f0b348b969ba935ddf3f183083519567842155f0b037dbc57f91a5cffd84300489346c08051feca476144b31e21ff0e6e33977f70b0cbe8a395f1e47
-            </div>
-            <!-- <div class="message-style">Address of the new node: {{ enode_address }}</div> -->
+            <div class="message-style">Address of the new node: {{ enode_address }}</div>
             <button class="btn btn-primary button-style" onclick="addNodeAll()">Add to all Quorum nodes</button>
         </div>
     </div>
-
     <script>
         function addNode() {
             fetch('http://127.0.0.1:5000/add_node')
@@ -85,8 +74,6 @@
             fetch('http://127.0.0.1:5000/add_node_all')
         }
     </script>
-
-
 </body>
 
 </html>
